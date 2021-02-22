@@ -1,13 +1,13 @@
-var chalk=require('chalk');
-var readLineSync=require('readline-sync');
+const chalk=require('chalk');
+const readLineSync=require('readline-sync');
 
 console.log(chalk.white.bold("Lets see how well you know Janaki\n"));
 
-var name =readLineSync.question(chalk.red("Please enter your name : "));
+const name =readLineSync.question(chalk.red("Please enter your name : "));
 
 console.log("Hello "+ name +" "+"Lets start \n");
 console.log(chalk.yellow("RULE - For each correct question you get 1 point \n"));
-var questionsList=[
+const questionsList=[
   {
     question :"What is janaki's favourite food?",
     choices:['Pizza','Pasta','Burger','Maggi'],
@@ -49,7 +49,7 @@ var questionsList=[
     answer:1,
   },
 ]
-var score=0;
+let score=0;
 let highscore=[
   {
   name:'Ashish',
@@ -63,7 +63,7 @@ let highscore=[
 
 function play()
 {
-for(var i=0;i<questionsList.length;i++)
+for(let i=0;i<questionsList.length;i++)
 {
   console.log(chalk.cyan.bold(questionsList[i].question));
    userAnswer =readLineSync.keyInSelect(questionsList[i].choices,"Choose option ");
@@ -91,7 +91,7 @@ for(var i=0;i<questionsList.length;i++)
 function gameScore()
 {
 console.log(chalk.green("Your score is "+ score +" out of "+questionsList.length +"\n"));  
-  for(var i=0;i<highscore.length;i++)
+  for(let i=0;i<highscore.length;i++)
   {
     if(score>highscore[i].score)
     {
@@ -100,7 +100,7 @@ console.log(chalk.green("Your score is "+ score +" out of "+questionsList.length
     }
   }
   console.log("---HIGHSCORES---")
-  for(var i=0;i<highscore.length;i++)
+  for(let i=0;i<highscore.length;i++)
   {
     console.log(chalk.yellow(highscore[i].name +" -> "+highscore[i].score));
   }
